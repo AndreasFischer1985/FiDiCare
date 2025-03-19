@@ -2,8 +2,7 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"> -->
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <title>Digitales Pflegeportal</title>
   <meta content="Dr. Andreas Fischer" property="og:author">
@@ -23,12 +22,19 @@
 
 <section class="section">
 
-<h1 class="title">FiDiCare – Finde die digitale Care-Anwendung</h2>
+<h1 class="title">Digitales Pflegeportal</h2>
 <h3  class="subtitle">Ihr Überblick über digitale Tools in der Pflege!</h3>
 <p>Auf dieser Seite können Sie sich digitale Pflegeprodukte ansehen, filtern und - nach einem Klick auf die Spaltenüberschriften - sortieren.</p>
 <p>Die Visualisierung rechts gibt einen Überblick über die Zahl der verfügbaren Produkte für die Interaktionsarbeit (iA), die planmäßig-rationale Arbeit (prA) und die Wissensarbeit (wA) im Pflegebereich.</p>
 <p>Sollten Sie digitale Pflegetools kennen, die Sie in unserer Liste vermissen, lassen Sie es uns gerne wissen (aktuelle Kontaktdaten finden Sie im Impressum).</p>
 <br>
+
+
+
+
+
+
+
 <div id="wrapper" style="display: flex;">
 <div class="image is-128x128" style="width:33%; height:100; display: background-color: black; margin-left: auto; margin-right: 0;">
 	<canvas id="doughnutChart" style="max-width:100%; max-height:100%;"></canvas>
@@ -132,7 +138,7 @@ const myChart = new Chart(ctx, {
         labels: ['Interaktionsarbeit (IA)','planmäßig-rationale Arbeit (prA)','wissensbasierte Arbeit (wA)'],
         datasets: [{
             label: '# Produkte', 
-            data: [52,51,36],
+            data: [54,54,33],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(75, 192, 192, 0.2)',
@@ -154,7 +160,7 @@ const myChart = new Chart(ctx, {
 	},
     elements: {
       center: {
-        text: '139',
+        text: '141',
         color: '#FF6384', // Default is #000000
         fontStyle: 'Arial', // Default is Arial
         sidePadding: 20, // Default is 20 (as a percentage)
@@ -165,20 +171,18 @@ const myChart = new Chart(ctx, {
   }
 
 });
+
 </script>
 
+</section>
+<section class="section">
+
+<div class="table-container">
 
 
 
 
-
-
-
-
-
-<div style="overflow-x: auto; min-width: 600px;">
-
-<table id="products">
+<table id="products" class="table">
 <thead>
   <tr>
     <th style="width:5%;color:white;">Id</th>
@@ -206,6 +210,7 @@ const myChart = new Chart(ctx, {
 <option value="Kommunikation">Kommunikation</option>
 <option value="Robotik">Robotik</option>
 <option value="Telecare">Telecare</option>
+<option value="Plattform">Plattform</option>
 </select>
 </td>
 <td><input type="text" id="filter4" onkeyup="filterTable()" placeholder="Filter Kurzbeschreibung..."></td>
@@ -269,7 +274,7 @@ const myChart = new Chart(ctx, {
 <td><strong>9</strong></td>
 <td><a href="https://augmedix.com/">AUGMEDIX</a>&nbsp;</td>
 <td>IA&nbsp;</td>
-<td>Dokumentaiton&nbsp;</td>
+<td>Dokumentation&nbsp;</td>
 <td>Clinician and patients interact naturally while Augmedix virtual healthcare data specialists observe the interaction remotely</td>
 </tr>
 <tr class="row">
@@ -765,7 +770,7 @@ const myChart = new Chart(ctx, {
 <tr class="row">
 <td><strong>80</strong></td>
 <td><a href="https://www.compliant-concept.ch/produkte/spital/#produkt-mobility-monitor">Mobility Monitor</a>&nbsp;</td>
-<td>rpA&nbsp;</td>
+<td>prA&nbsp;</td>
 <td>Dokumentation&nbsp;</td>
 <td>Das Patientenmonitoring-System Mobility Monitor™ ermöglicht Ärzten und Pflegeexperten in Echtzeit eine massgebliche Optimierung verschiedener Qualitätsindikatoren, insbesondere Sturz und Dekubitus, sowie Schmerzen und Delir. Durch kontinuierliches Auswerten der Bewegungen sowie des Aufsteh- und Schlafverhaltens der zu pflegenden Personen werden die notwendigen Massnahmen und zu treffenden Vorkehrungen rechtzeitig erkannt und können dynamisch bedürfnisgerecht angepasst werden.</td>
 </tr>
@@ -1068,7 +1073,7 @@ Diese Informationen können Sie im Vorfeld vorbereiten - das spart wertvolle Zei
 <tr class="row">
 <td><strong>123</strong></td>
 <td><a href="https://de.tabtime.com/products/tabtime-4">TabTime</a>&nbsp;</td>
-<td>rpA&nbsp;</td>
+<td>prA&nbsp;</td>
 <td>Assistenzsystem&nbsp;</td>
 <td>Das neue TabTime 4 fasst bis zu 28 Aspirin-Tabletten in jedem der 4 Fächer, was einer Kapazität von über 100 Tabletten pro Tag entspricht! TabTime 4 bietet außerdem zwei Alarme, eine blinkende rote LED und einen Audioalarm mit einer wirklich guten Lautstärke!</td>
 </tr>
@@ -1177,12 +1182,42 @@ Diese Informationen können Sie im Vorfeld vorbereiten - das spart wertvolle Zei
 <td>Assistenzsystem&nbsp;</td>
 <td>Wear&Care® gibt Ihnen zuverlässig Bescheid, wenn das Inkontinenzmaterial gewechselt werden muss. Eine hilfreiche Information, die mehr Würde für den Bewohner, Arbeitsfreude für die Pflegekräfte und Einsparungen für mehr von all dem Guten mit sich führt.</td>
 </tr>
+<tr class="row">
+<td><strong>139</strong></td>
+<td><a href="https://mcd.managingcare.de/">ManagingCare Digital</a>&nbsp;</td>
+<td>prA&nbsp;</td>
+<td>Plattform&nbsp;</td>
+<td>ManagingCare Digital (MCD) ist ein digitales Ökosystem, in dem durch die Vernetzung und Integration von verschiedenen Applikationen und Diensten in Verbindung mit analogen Lösungen eine ganzheitliche Digitalisierung der Pflege und Betreuung möglich wird. Funktionen im Webportal und Schnittstellen zu analogen und digitalen Lösungen werden stetig erweitert und neue Features, Dienste und Schnittstellen zu Sensoren-Systemen hinzugefügt. Die Anbindung an MCD mit seiner Forschungsplattform und seinem Forschungsnetzwerk hält Sie immer am Puls der Zeit.</td>
+</tr>
+<tr class="row">
+<td><strong>140</strong></td>
+<td><a href="https://medikit.net/de/">Medikit</a>&nbsp;</td>
+<td>wA&nbsp;</td>
+<td>Plattform&nbsp;</td>
+<td>medikit für die Pflege, Die Mitarbeiter-App für eine vereinfachte interne Kommunikation in der Pflege. medikit ermöglicht eine einfache interne Kommunikation und Zusammenarbeit für Teams in der Pflege. Tägliche Arbeitsprozesse und Standards können digital und transparent abgebildet werden. Die Teams können sich dadurch nicht nur besser organisieren, auch die Qualität der Betreuung wird verbessert.</td>
+</tr>
+<tr class="row">
+<td><strong>141</strong></td>
+<td><a href="https://vivai.care/">VIVAIcare</a>&nbsp;</td>
+<td>IA&nbsp;</td>
+<td>Assistenzsystem&nbsp;</td>
+<td>VIVAIcare ist ein digitales Assistenzsystem. Es besteht aus dem Basismodul Vivi (Datensammler für Sensor-daten und Sprachassistenz) und kann je nach erforderlicher Konfiguration mit unterschiedlichen Sensoren verbunden werden, z. B. Sturzsensoren. Das Produkt VIVAIcare hat, abhängig von der Konfiguration, folgende Funktionen: Sturzerkennung mit Alarmierungskette, Datum, Uhrzeit, Kalender, Terminerinnerung, Trinkerinnerung, Medikamentenerinnerung, Eingabe der Blutruckwerte mit Verlauf Eingabe des Gewichts mit Verlauf</td>
+</tr>
 
 </tbody>
-</table>
-	
+</table> 
+
+ 
+
+ 
+
+
+
+</div>
 </div>
 
+</section>
+<section class="section">
 
 
 
@@ -1192,7 +1227,7 @@ Diese Informationen können Sie im Vorfeld vorbereiten - das spart wertvolle Zei
 
 
 <br><br>
-<small><a href="https://github.com/AndreasFischer1985">(c) Dr. Andreas Fischer</a> <a href="https://twitter.com/AFischer1985">(@AFischer1985)</a></small>
+<small><a href="https://github.com/AndreasFischer1985">(c) Dr. Andreas Fischer</a> <a href="https://chaos.social/@AFischer1985">(@AFischer1985)</a></small>
 </section>
 </body>
 </html>

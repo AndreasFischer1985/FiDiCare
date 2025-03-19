@@ -1,6 +1,7 @@
 ﻿###########################################################################################
 # Author: 	Dr. Andreas Fischer
 # Date:		15.11.2022 
+# Update: 	19.07.2024
 # Description:	R-Syntax zur Generierung einer HTML-Tabelle für das digitale Pflegeportal
 		auf Basis der Datei "Überblick Digitalisierung Pflege.xlsx".
 ###########################################################################################
@@ -24,6 +25,7 @@ feldA=gsub("/.*","",feld)
 feldB=gsub(".*/","",feld)
 
 table(feldA)
+table(feldB)
 sum(table(feldA))
 
 rows=sapply(1:length(anwendung), function(id) paste0(
@@ -56,6 +58,7 @@ rows=c(
 	"<option value=\"Kommunikation\">Kommunikation</option>\n",
 	"<option value=\"Robotik\">Robotik</option>\n",
 	"<option value=\"Telecare\">Telecare</option>\n",
+	"<option value=\"Plattform\">Plattform</option>\n",
 	"</select>\n",
 	"</td>\n",
 	"<td><input type=\"text\" id=\"filter4\" onkeyup=\"filterTable()\" placeholder=\"Filter Kurzbeschreibung...\"></td>\n",
@@ -63,7 +66,7 @@ rows=c(
 )
 
 table=paste0("
-<table id=\"products\">
+<table id=\"products\" class=\"table\">
 <thead>
   <tr>
     <th style=\"width:5%;color:white;\">Id</th>
@@ -82,3 +85,7 @@ paste0(rows,collapse=""),
 ")
 
 writeLines(table,paste0(Sys.Date(),"_updatedTable.html"))
+
+table(feldA)
+table(feldB)
+sum(table(feldA))
