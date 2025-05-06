@@ -1,5 +1,6 @@
 <script setup>
-  import fidicare from './data/fidicare.json';
+  import fidicare from './data/fidicare.json'
+  import Chart from './components/Chart.vue'
 
   const columns = [
     { field: 'id', label: '#', sortable: true },
@@ -8,22 +9,16 @@
     { field: 'technology', label: 'Technologie', sortable: true },
     { field: 'description', label: 'Beschreibung', searchable: true },
   ]
-
-  const colors = [
-    {"type": "planmäßig-rationale Arbeit (prA)", "color": "dark"},
-    {"type": "Interaktionsarbeit (iA)", "color": "info"},
-    {"type": "Wissensbasierte Arbeit (wA)", "color": "danger"}
-  ]
 </script>
 
 <template>
   <section class="section theme-light">
     <div class="container">
       <div class="columns">
-        <div class="column">
+        <div class="column is-8">
           <b-field label="Arbeitsart" grouped group-multiline>
             <b-button size="is-small" @click="selectedTypes = []" :type="selectedTypes.length == 0 ? 'is-primary' : ''" class="mr-3 has-text-weight-bold">Alle anzeigen</b-button>
-            <b-checkbox-button v-model="selectedTypes" v-for="(item, index) in uniqueTypes" :native-value="item" :type="getTypeColor(item, colors)" size="is-small">{{ item }}</b-checkbox-button>
+            <b-checkbox-button v-model="selectedTypes" v-for="(item, index) in uniqueTypes" :native-value="item" size="is-small">{{ item }}</b-checkbox-button>
           </b-field>
 
           <b-field label="Technologie" grouped group-multiline>
@@ -32,18 +27,19 @@
           </b-field>
 
           <b-field label="Anzahl">
-            <span class="tag is-primary mr-1">{{ entries.length }}</span>
-            <span class="has-text-primary"> Pflegeprodukte</span>
+            <span class="tag is-primary mr-1">{{ filteredData.length }}</span>
+            <span class="has-text-primary has-text-weight-bold">Pflegeprodukte</span>
           </b-field>
         </div>
 
-        <div class="column">
+        <div class="column is-hidden-mobile is-4">
+          <Chart :filteredData="filteredData" />
         </div>
       </div>
 
 
       <b-table
-        :data="entries"
+        :data="filteredData"
         :columns="columns"
         sort-icon="chevron-up"
         sortIconSize="is-small"
@@ -66,7 +62,7 @@
             }
         },
         computed: {
-          entries: function () {
+          filteredData: function () {
             // Daten ggfs. filtern und bereit stellen
             return fidicare.filter(item =>
               (this.selectedTypes.length === 0 || this.selectedTypes.includes(item.type)) &&
@@ -74,18 +70,11 @@
             )
           },
           uniqueTypes: function () {
-            return [...new Set( fidicare.map(eintrag => eintrag.type) )]; // Eindeutige Werte aus den Daten filtern
+            return [...new Set( fidicare.map(eintrag => eintrag.type) )] // Eindeutige Werte aus den Daten filtern
           },
           uniqueTechnologies: function () {
-            return [...new Set( fidicare.map(eintrag => eintrag.technology) )]; // Eindeutige Werte aus den Daten filtern
+            return [...new Set( fidicare.map(eintrag => eintrag.technology) )] // Eindeutige Werte aus den Daten filtern
           }
-        },
-        methods: {
-            // Farbe anhand der Arbeitsart (type) finden, vgl. 'colors' im Setup
-            getTypeColor: function(type, colors) {
-              const item = colors.find(el => el.type === type);
-              return item ? 'is-' + item.color : 'is-primary';
-            }
         }
     }
 </script>
