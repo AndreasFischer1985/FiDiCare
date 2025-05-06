@@ -1,6 +1,19 @@
 import './assets/main.css'
 
+// main.js
 import { createApp } from 'vue'
 import App from './App.vue'
 
-createApp(App).mount('#app')
+// Buefy + Bulma
+import Buefy from 'buefy'
+import 'buefy/dist/buefy.css'
+
+// Icons
+import '@mdi/font/css/materialdesignicons.css'
+
+const app = createApp(App)
+app.use(Buefy, {
+  defaultIconPack: 'mdi'
+})
+
+app.mount('#app')
