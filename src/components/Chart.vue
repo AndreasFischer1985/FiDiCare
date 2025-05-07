@@ -34,7 +34,7 @@ const chartData = computed(() => {
     labels: Object.keys(counts),
     datasets: [{
       data: Object.values(counts),
-      backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#9CCC65', '#AB47BC']
+      backgroundColor: ['#f71a5f', '#0082a4', '#56b9a1', '##494949', '#000000']
     }]
   }
 })

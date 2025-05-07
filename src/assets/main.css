@@ -3,10 +3,6 @@
 font-weight: 600;
 }
 
-.b-table .table th.is-sortable .icon {
-visibility: visible !important;
-}
-
 .b-table .table th.is-sortable .th-wrap {
 padding-right: 1rem;
 }

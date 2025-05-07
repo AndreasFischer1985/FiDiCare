@@ -1,14 +1,6 @@
 <script setup>
   import fidicare from './data/fidicare.json'
   import Chart from './components/Chart.vue'
-
-  const columns = [
-    { field: 'id', label: '#', sortable: true },
-    { field: 'name', label: 'Produktname', searchable: true, sortable: true },
-    { field: 'type', label: 'Arbeitsart', sortable: true },
-    { field: 'technology', label: 'Technologie', sortable: true },
-    { field: 'description', label: 'Beschreibung', searchable: true },
-  ]
 </script>
 
 <template>
@@ -16,19 +8,19 @@
     <div class="container">
       <div class="columns">
         <div class="column is-8">
-          <b-field label="Arbeitsart" grouped group-multiline>
-            <b-button size="is-small" @click="selectedTypes = []" :type="selectedTypes.length == 0 ? 'is-primary' : ''" class="mr-3 has-text-weight-bold">Alle anzeigen</b-button>
-            <b-checkbox-button v-model="selectedTypes" v-for="(item, index) in uniqueTypes" :native-value="item" size="is-small">{{ item }}</b-checkbox-button>
-          </b-field>
-
           <b-field label="Technologie" grouped group-multiline>
-            <b-button size="is-small" @click="selectedTechnologies = []" :type="selectedTechnologies.length == 0 ? 'is-primary' : ''" class="mr-3 has-text-weight-bold">Alle anzeigen</b-button>
-            <b-checkbox-button v-model="selectedTechnologies" v-for="(item, index) in uniqueTechnologies" :native-value="item" size="is-small">{{ item }}</b-checkbox-button>
+            <b-button size="is-small" @click="selectedTechnologies = []" :type="selectedTechnologies.length == 0 ? 'is-dark' : ''" class="mr-3 has-text-weight-bold">Alle anzeigen</b-button>
+            <b-checkbox-button v-model="selectedTechnologies" v-for="(item, index) in uniqueTechnologies" :native-value="item" size="is-small" type="is-info">{{ item }}</b-checkbox-button>
           </b-field>
 
-          <b-field label="Anzahl">
-            <span class="tag is-primary mr-1">{{ filteredData.length }}</span>
-            <span class="has-text-primary has-text-weight-bold">Pflegeprodukte</span>
+          <b-field label="Arbeitsart" grouped group-multiline>
+            <b-button size="is-small" @click="selectedTypes = []" :type="selectedTypes.length == 0 ? 'is-dark' : ''" class="mr-3 has-text-weight-bold">Alle anzeigen</b-button>
+            <b-checkbox-button v-model="selectedTypes" v-for="(item, index) in uniqueTypes" :native-value="item" size="is-small" type="is-info">{{ item }}</b-checkbox-button>
+          </b-field>
+
+          <b-field class="mt-5 has-text-weight-bold">
+            <b-tag type="is-dark" class="mr-1">{{ filteredData.length }}</b-tag>
+            <span>Pflegeprodukte</span>
           </b-field>
         </div>
 
@@ -37,17 +29,28 @@
         </div>
       </div>
 
-
       <b-table
         :data="filteredData"
-        :columns="columns"
         sort-icon="chevron-up"
         sortIconSize="is-small"
         sort-icon-desc="chevron-down"
-        default-sort-direction="asc"
-        default-sort="id"
         paginated
         per-page="10">
+          <b-table-column field="id" label="#" sortable v-slot="props">
+            {{ props.row.id }}
+          </b-table-column>
+          <b-table-column field="name" label="Produktname" sortable v-slot="props">
+            {{ props.row.name }}
+          </b-table-column>
+          <b-table-column field="type" label="Arbeitsart" sortable searchable v-slot="props">
+            {{ props.row.type }}
+          </b-table-column>
+          <b-table-column field="technology" label="Technologie" sortable v-slot="props">
+            {{ props.row.technology }}
+          </b-table-column>
+          <b-table-column field="description" label="Beschreibung" searchable v-slot="props">
+            {{ props.row.description }}
+          </b-table-column>
       </b-table>
     </div>
   </section>

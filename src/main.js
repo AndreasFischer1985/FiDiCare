@@ -7,6 +7,7 @@ import App from './App.vue'
 // Buefy + Bulma
 import Buefy from 'buefy'
 import 'buefy/dist/buefy.css'
+import './assets/bulma.scss'
 
 // Icons
 import '@mdi/font/css/materialdesignicons.css'

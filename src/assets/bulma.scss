@@ -1,0 +1,27 @@
+// Eigene Farben definieren
+$purple: #f71a5f;
+$blue: #0082a4;
+$green: #0082a4;
+
+// Bulma anpassen
+$primary: $purple;
+$info: $blue;
+
+$pagination-current-background-color: $info;
+$pagination-current-border-color: $info;
+
+// Bulma importieren
+@import "bulma/bulma";
+
+// Buefy anpassen
+.b-table .table td:nth-child(2) {
+    font-weight: 600;
+}
+
+.b-table .table th.is-sortable .th-wrap {
+    padding-right: 1rem;
+}
+
+.b-table .table-mobile-sort .button.is-primary {
+    background-color: $dark;
+}
