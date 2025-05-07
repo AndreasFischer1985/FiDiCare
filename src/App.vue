@@ -39,10 +39,12 @@
           <b-table-column field="id" label="#" sortable v-slot="props">
             {{ props.row.id }}
           </b-table-column>
-          <b-table-column field="name" label="Produktname" sortable v-slot="props">
-            {{ props.row.name }}
+          <b-table-column field="name" label="Produktname" sortable searchable v-slot="props">
+            <a :href="props.row.url" target="_blank" rel="noopener, noreferrer">
+              {{ props.row.name }}
+            </a>
           </b-table-column>
-          <b-table-column field="type" label="Arbeitsart" sortable searchable v-slot="props">
+          <b-table-column field="type" label="Arbeitsart" sortable v-slot="props">
             {{ props.row.type }}
           </b-table-column>
           <b-table-column field="technology" label="Technologie" sortable v-slot="props">

@@ -6,9 +6,10 @@ $green: #0082a4;
 // Bulma anpassen
 $primary: $purple;
 $info: $blue;
+$dark: #353535;
 
-$pagination-current-background-color: $info;
-$pagination-current-border-color: $info;
+$pagination-current-background-color: $dark;
+$pagination-current-border-color: $dark;
 
 // Bulma importieren
 @import "bulma/bulma";
@@ -24,4 +25,20 @@ $pagination-current-border-color: $info;
 
 .b-table .table-mobile-sort .button.is-primary {
     background-color: $dark;
+}
+
+.b-table .table td a:not([class*=button]):not(.no-decoration) {
+    position: relative;
+    color: currentColor;
+
+    &::after {
+        display: block;
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -.25em;
+        width: 3rem;
+        height: 4px;
+        background-color: $primary;
+    }
 }
