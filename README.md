@@ -7,4 +7,37 @@ Eine Visualisierung rechts gibt einen Überblick über die Zahl der verfügbaren
 
 Sollten Sie digitale Pflegetools kennen, die Sie in unserer Liste vermissen, lassen Sie es uns gerne wissen (aktuelle Kontaktdaten finden Sie im Impressum).
 
+---
 
+## Technik
+
+Die Anwendung basiert auf [Vue 3](https://vuejs.org/) und [Buefy](https://v3.buefy.org/) in [Vite](https://vite.dev/).
+
+### Konfiguration
+
+[Vite Configuration Reference](https://vite.dev/config/).
+
+### Installation
+
+```sh
+npm install
+```
+
+### Entwicklung
+
+Kompilieren und automatisches Nachladen von Änderungen im lokalen Browser.
+
+```sh
+npm run dev
+```
+
+TODO: R-Skript zum Update der Daten unter ``src/data/fidicare.json``.
+
+
+### Veröffentlichung
+
+Kompilieren und Minimieren zur Veröffentlichung.
+
+```sh
+npm run build
+```
