@@ -5,6 +5,8 @@
 <script setup>
 import { computed, watch } from 'vue'
 import { Doughnut } from 'vue-chartjs'
+import { typeColorMap } from './../data/colors.js'
+
 import {
   Chart as ChartJS,
   Title,
@@ -26,15 +28,18 @@ const props = defineProps({
 // Aggregiere die Anzahl pro "type"
 const chartData = computed(() => {
   const counts = {}
+
   props.filteredData.forEach(item => {
     counts[item.type] = (counts[item.type] || 0) + 1
   })
 
+  const labels = Object.keys(counts)
+
   return {
-    labels: Object.keys(counts),
+    labels,
     datasets: [{
       data: Object.values(counts),
-      backgroundColor: ['#f71a5f', '#0082a4', '#56b9a1', '##494949', '#000000']
+      backgroundColor: labels.map(label => typeColorMap[label] || '#494949') // Farbe auf Basis des Typs nutzern (inkl. Fallback)
     }]
   }
 })
