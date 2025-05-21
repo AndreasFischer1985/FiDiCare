@@ -51,11 +51,18 @@
             {{ props.row.technology }}
           </b-table-column>
           <b-table-column field="description" label="Beschreibung" searchable v-slot="props">
-            {{ props.row.description }}
+            {{ props.row.description }} <sup><a href="#ref-1" class="no-decoration">[1]</a></sup>
           </b-table-column>
       </b-table>
     </div>
   </section>
+
+  <aside class="section">
+    <p id="ref-1" class="is-size-7">
+      <sup>[1]</sup>
+      Die Beschreibungen der Produkte sind der jeweiligen Webseite entnommen.
+    </p>
+  </aside>
 </template>
 
 <script>

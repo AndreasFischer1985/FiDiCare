@@ -18,6 +18,9 @@ $pagination-current-border-color: $dark;
 .b-table .table td:nth-child(2) {
     font-weight: 600;
 }
+.b-table .table th .control {
+    width: 100%;
+}
 
 .b-table .table th.is-sortable .th-wrap {
     padding-right: 1rem;
@@ -41,4 +44,9 @@ $pagination-current-border-color: $dark;
         height: 4px;
         background-color: $primary;
     }
+}
+
+aside :target {
+    color: $primary;
+    padding-left: 0.25em;
 }
